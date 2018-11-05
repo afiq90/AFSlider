@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		426EEA9321902A67002816BB /* CustomDesignableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426EEA9221902A67002816BB /* CustomDesignableView.xib */; };
+		426EEA9521902A78002816BB /* CustomDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426EEA9421902A78002816BB /* CustomDesignableView.swift */; };
 		42B42E1F218BFFAD00D46A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B42E1E218BFFAD00D46A94 /* AppDelegate.swift */; };
 		42B42E21218BFFAD00D46A94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B42E20218BFFAD00D46A94 /* ViewController.swift */; };
 		42B42E24218BFFAD00D46A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B42E22218BFFAD00D46A94 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		426EEA9221902A67002816BB /* CustomDesignableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDesignableView.xib; sourceTree = "<group>"; };
+		426EEA9421902A78002816BB /* CustomDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignableView.swift; sourceTree = "<group>"; };
 		42B42E1B218BFFAD00D46A94 /* AFSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B42E1E218BFFAD00D46A94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42B42E20218BFFAD00D46A94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		426EEA9121902A43002816BB /* CustomDesignableView */ = {
+			isa = PBXGroup;
+			children = (
+				426EEA9221902A67002816BB /* CustomDesignableView.xib */,
+				426EEA9421902A78002816BB /* CustomDesignableView.swift */,
+			);
+			path = CustomDesignableView;
+			sourceTree = "<group>";
+		};
 		42B42E12218BFFAD00D46A94 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 				42B42E20218BFFAD00D46A94 /* ViewController.swift */,
 				42B42E22218BFFAD00D46A94 /* Main.storyboard */,
 				42B42E30218BFFC000D46A94 /* Slider */,
+				426EEA9121902A43002816BB /* CustomDesignableView */,
 				42B42E25218BFFAF00D46A94 /* Assets.xcassets */,
 				42B42E27218BFFAF00D46A94 /* LaunchScreen.storyboard */,
 				42B42E2A218BFFAF00D46A94 /* Info.plist */,
@@ -140,6 +154,7 @@
 				42B42E32218BFFD500D46A94 /* SliderView.xib in Resources */,
 				42B42E26218BFFAF00D46A94 /* Assets.xcassets in Resources */,
 				42B42E24218BFFAD00D46A94 /* Main.storyboard in Resources */,
+				426EEA9321902A67002816BB /* CustomDesignableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B42E34218BFFEB00D46A94 /* SliderView.swift in Sources */,
+				426EEA9521902A78002816BB /* CustomDesignableView.swift in Sources */,
 				42B42E21218BFFAD00D46A94 /* ViewController.swift in Sources */,
 				42B42E1F218BFFAD00D46A94 /* AppDelegate.swift in Sources */,
 			);

@@ -58,7 +58,6 @@ class SliderView: UIView {
             imageView.clipsToBounds = true
             
 //            debugView(imageView: imageView)
-
           
             sliderScrollView.addSubview(imageView)
             
