@@ -13,11 +13,15 @@ import UIKit
 
 @IBDesignable open class CustomDesignableView: UIView {
     
-  lazy var nameLabel: UILabel =  {
+    // Noted : lazy mesti kena guna var, read only computed property pon kena guna var. only store property like below can use let or var. Below link is reference for computed property vs stored property vs lazy var property.
+    // https://stackoverflow.com/questions/39635681/what-is-the-difference-between-the-following-3-declarations
+    
+   lazy var nameLabel: UILabel =  {
 //        let label = UILabel(frame: CGRect(x: 20, y: 20, width: 250, height: 150))
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.isUserInteractionEnabled = false
+        label.isUserInteractionEnabled = true
+        label.clipsToBounds = true
         label.text = "Unable to simultaneously satisfy constraints.Probably at least one of the constraints in the following list is one you don't want.Unable to simultaneously satisfy constraints.Probably at least one of the constraints in the following list is one you don't want.imultaneously satisfy constraints.Probably at least one of the constraints in the following list is one you don't want "
         label.numberOfLines = 0
         label.textColor = UIColor.white
@@ -34,24 +38,37 @@ import UIKit
     open override func awakeFromNib() {
         super.awakeFromNib()
         
+        setupNameLabel()
+    }
+    
+    func setupNameLabel() {
         self.addSubview(nameLabel)
-        nameLabel.clipsToBounds = true
+        
+        //Set tap to nameLabel
+        nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
         // Name Label Autolayout constraint
+        setupConstraint()
+    }
+    
+    func setupConstraint() {
+        // Constraint for nameLabel
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5)
-//            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3),
-//            nameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 2/3)
-        ])
+            //            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            //            nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3),
+            //            nameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 2/3)
+            ])
         
         layoutIfNeeded()
     }
     
-    
+    @objc func labelTapped(sender: UITapGestureRecognizer) {
+        print("namelabel tapped")
+    }
     
     private let animationDuration: TimeInterval = 1.0
     private let delayTime: TimeInterval = 0
