@@ -44,15 +44,19 @@ class ViewController: UIViewController {
     
     func setupSliderConstraint(with slider: SliderView) {
 //        slider.invalidateIntrinsicContentSize()
-        slider.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
-        slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        
+        NSLayoutConstraint.activate([
+            slider.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            slider.heightAnchor.constraint(equalToConstant: 250)
+        ])
+      
 
 //        slider.sliderScrollView.leadingAnchor.constraint(equalTo: slider.leadingAnchor)
 //        slider.sliderScrollView.trailingAnchor.constraint(equalTo: slider.trailingAnchor)
 //        slider.sliderScrollView.widthAnchor.constraint(equalTo: view.widthAnchor)
         
-        slider.heightAnchor.constraint(equalToConstant: 250).isActive = true
 //        slider.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
 //        slider.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0).isActive = true
 //        slider.sliderScrollView.widthAnchor.constraint(equalTo: slider.widthAnchor)
