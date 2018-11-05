@@ -150,8 +150,6 @@ extension CustomDesignableView {
         case .lowDamping:
             // Low Damping Custom Animation here
             provideAnimation(animationDuration: animationDuration, deleyTime: delayTime, springDamping: lowSpringDamping, springVelocity: springVelocity)
-        default:
-            provideAnimation(animationDuration: animationDuration, deleyTime: delayTime, springDamping: lowSpringDamping, springVelocity: springVelocity)
         }
         
     }
