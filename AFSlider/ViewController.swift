@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         slider.backgroundColor = UIColor.clear
 //        debugView(slider: slider)
         view.addSubview(slider)
+        sliderViewAnimation(slider: slider)
     }
     
     func setupSliderConstraint(with slider: SliderView) {
@@ -72,6 +73,13 @@ class ViewController: UIViewController {
         print("main slider width \(slider.frame.size.width)")
         print("main slider scrollview width \(slider.sliderScrollView.frame.size.width)")
 
+    }
+    
+    func sliderViewAnimation(slider: SliderView) {
+        slider.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 0.5) {
+            slider.transform = .identity
+        }
     }
     
     func debugView(slider: SliderView) {
