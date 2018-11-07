@@ -30,18 +30,17 @@ import UIKit
         return label
     }()
     
-    var isLabelTappable: Bool?
-//    {
-//        didSet {
-//            guard let tap = isLabelTappable else { return }
-//
-//            if tap {
-//                nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
-//            } else {
-//                print("isLabelTappable is false")
-//            }
-//        }
-//    }
+    var isLabelTappable: Bool? {
+        didSet {
+            guard let tap = isLabelTappable else { return }
+
+            if tap {
+                nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+            } else {
+                print("isLabelTappable is false")
+            }
+        }
+    }
 
     
 //    required public init?(coder aDecoder: NSCoder) {
@@ -61,7 +60,6 @@ import UIKit
         super.awakeFromNib()
 
         setupNameLabel()
-        print("namelabel interaction: \(nameLabel.isUserInteractionEnabled)")
 //        print("istap: \(isLabelTappable)")
 
     }
@@ -71,16 +69,7 @@ import UIKit
         self.addSubview(nameLabel)
         // Name Label Autolayout constraint
         self.setupConstraint()
-        guard let tap = isLabelTappable else {return}
-
-        if tap {
-            // Add tap gesture to nameLabel
-            nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
-        } else {
-//            nameLabel.removeGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
-            print("isLabelTappable is false")
-        }
-
+    
     }
     
     func setupConstraint() {
