@@ -16,7 +16,7 @@ import UIKit
     // Noted : lazy mesti kena guna var, read only computed property pon kena guna var. only store property like below can use let or var. Below link is reference for computed property vs stored property vs lazy var property.
     // https://stackoverflow.com/questions/39635681/what-is-the-difference-between-the-following-3-declarations
     
-   lazy var nameLabel: UILabel =  {
+    var nameLabel: UILabel =  {
 //        let label = UILabel(frame: CGRect(x: 20, y: 20, width: 250, height: 150))
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,27 +27,60 @@ import UIKit
         label.textColor = UIColor.white
         label.backgroundColor = UIColor.black
     
-//        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-//        label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-//        label.widthAnchor.constraint(equalToConstant: 250).isActive = true
-//        label.heightAnchor.constraint(equalToConstant: 250).isActive = true
-    
         return label
     }()
     
+    var isLabelTappable: Bool?
+//    {
+//        didSet {
+//            guard let tap = isLabelTappable else { return }
+//
+//            if tap {
+//                nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+//            } else {
+//                print("isLabelTappable is false")
+//            }
+//        }
+//    }
+
+    
+//    required public init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
+//    public override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+    
+//    convenience init(tap: Bool) {
+//        super.init()
+//        self.isLabelTappable = tap
+//    }
+
     open override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setupNameLabel()
+        print("namelabel interaction: \(nameLabel.isUserInteractionEnabled)")
+//        print("istap: \(isLabelTappable)")
+
     }
     
     func setupNameLabel() {
-        self.addSubview(nameLabel)
         
-        //Set tap to nameLabel
-        nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+        self.addSubview(nameLabel)
         // Name Label Autolayout constraint
-        setupConstraint()
+        self.setupConstraint()
+        guard let tap = isLabelTappable else {return}
+
+        if tap {
+            // Add tap gesture to nameLabel
+            nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+        } else {
+//            nameLabel.removeGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+            print("isLabelTappable is false")
+        }
+
     }
     
     func setupConstraint() {
@@ -61,19 +94,21 @@ import UIKit
             //            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             //            nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3),
             //            nameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 2/3)
-            ])
+        ])
         
         layoutIfNeeded()
     }
     
     @objc func labelTapped(sender: UITapGestureRecognizer) {
         print("namelabel tapped")
+        nameLabel.text = "Daily News From Us. :)"
     }
     
     private let animationDuration: TimeInterval = 1.0
     private let delayTime: TimeInterval = 0
     private let springDamping: CGFloat = 0.25
     private let lowSpringDamping: CGFloat = 0.50
+    private let noDampingSpring: CGFloat = 0.0
     private let springVelocity: CGFloat = 8.00
     
     public enum AnimateWithDamping {

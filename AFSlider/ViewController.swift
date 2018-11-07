@@ -10,7 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var customDesignableView: CustomDesignableView!
+    @IBOutlet weak var customDesignableView: CustomDesignableView! {
+        didSet {
+            customDesignableView.isLabelTappable = true
+        }
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -35,7 +39,8 @@ class ViewController: UIViewController {
           HEIGHT = SLIDER HEIGHT - VALUE THAT NEED TO MATCH THE HEIGHT CONSTANT
         */
         slider.createSlider(width: view.frame.size.width - 50, height: slider.bounds.size.height + 50)
-        customDesignableView.animateView(withDamping: .highDamping)
+//        customDesignableView.isLabelTappable = true
+        customDesignableView.animateView(withDamping: .lowDamping)
         
     }
     
