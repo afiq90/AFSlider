@@ -29,46 +29,27 @@ import UIKit
     
         return label
     }()
-    
-    var isLabelTappable: Bool? {
-        didSet {
-            guard let tap = isLabelTappable else { return }
-
-            if tap {
-                nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
-            } else {
-                print("isLabelTappable is false")
-            }
-        }
-    }
-
-    
-//    required public init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-//    public override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
-    
-//    convenience init(tap: Bool) {
-//        super.init()
-//        self.isLabelTappable = tap
-//    }
+   
 
     open override func awakeFromNib() {
         super.awakeFromNib()
 
         setupNameLabel()
-//        print("istap: \(isLabelTappable)")
 
     }
     
     func setupNameLabel() {
         
+        
         self.addSubview(nameLabel)
         // Name Label Autolayout constraint
         self.setupConstraint()
+                
+        if canTapLabel {
+            nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+        } else {
+            print("isLabelTappable is false")
+        }
     
     }
     
@@ -104,6 +85,8 @@ import UIKit
         case highDamping
         case lowDamping
     }
+
+    @IBInspectable var canTapLabel: Bool = false
     
     @IBInspectable var cornerRadius: Double {
         get {

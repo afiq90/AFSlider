@@ -35,7 +35,6 @@ class ViewController: UIViewController {
           HEIGHT = SLIDER HEIGHT - VALUE THAT NEED TO MATCH THE HEIGHT CONSTANT
         */
         slider.createSlider(width: view.frame.size.width - 50, height: slider.bounds.size.height + 50)
-        customDesignableView.isLabelTappable = true
         customDesignableView.animateView(withDamping: .lowDamping)
         
     }

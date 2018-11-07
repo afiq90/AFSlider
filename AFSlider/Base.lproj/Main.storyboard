@@ -38,6 +38,7 @@
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                         <size key="value" width="3" height="8"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="canTapLabel" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
