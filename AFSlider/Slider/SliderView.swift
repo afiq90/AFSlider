@@ -61,8 +61,6 @@ class SliderView: UIView {
           
             sliderScrollView.addSubview(imageView)
             
-            
-
         }
         
         sliderTitleLabel?.text = sliderTitle[0]

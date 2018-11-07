@@ -29,27 +29,21 @@ import UIKit
     
         return label
     }()
-   
+    
+    var ayam: String?
+    var canTapLabel: Bool?
 
     open override func awakeFromNib() {
         super.awakeFromNib()
 
         setupNameLabel()
-
     }
     
     func setupNameLabel() {
         
-        
         self.addSubview(nameLabel)
         // Name Label Autolayout constraint
         self.setupConstraint()
-                
-        if canTapLabel {
-            nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
-        } else {
-            print("isLabelTappable is false")
-        }
     
     }
     
@@ -86,7 +80,7 @@ import UIKit
         case lowDamping
     }
 
-    @IBInspectable var canTapLabel: Bool = false
+    @IBInspectable var canTapLabel2: Bool = false
     
     @IBInspectable var cornerRadius: Double {
         get {
@@ -163,6 +157,21 @@ import UIKit
 }
 
 extension CustomDesignableView {
+    
+    public func setVar(a: String, canTapLabel: Bool?) {
+        self.ayam = a
+        self.canTapLabel = canTapLabel
+        guard let b = self.ayam else {return}
+        print("kepci : \(b)")
+        
+        guard let canTap = self.canTapLabel else {return}
+        if canTap {
+            nameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(sender:))))
+        } else {
+            print("isLabelTappable is false")
+        }
+        
+    }
     
     //MARK:- Default Animation here
     public func animateView(withDamping damping: AnimateWithDamping) {
