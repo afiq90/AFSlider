@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         */
         slider.createSlider(width: view.frame.size.width - 50, height: slider.bounds.size.height + 50)
         customDesignableView.animateView(withDamping: .lowDamping)
-        customDesignableView.setVar(a: "ayamaz", canTapLabel: false)
+        customDesignableView.setVar(a: "ayamaz", canTapLabel: true)
     }
     
     func setupSlider(with slider: SliderView) {

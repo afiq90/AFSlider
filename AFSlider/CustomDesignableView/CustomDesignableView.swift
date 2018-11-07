@@ -80,7 +80,7 @@ import UIKit
         case lowDamping
     }
 
-    @IBInspectable var canTapLabel2: Bool = false
+//    @IBInspectable var canTapLabel2: Bool = false
     
     @IBInspectable var cornerRadius: Double {
         get {
